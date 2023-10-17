@@ -1,0 +1,28 @@
+<template>
+    <template lwc:if={editMode}>
+        <!-- Display the lightning-record-edit-form -->
+        <lightning-record-edit-form record-id={recordId} object-api-name={objectApiName} onsuccess={toggleMode}>
+            <lightning-output-field field-name={accountField}></lightning-output-field>
+            <lightning-input-field field-name={nameField}></lightning-input-field>
+            <lightning-input-field field-name={amountField}></lightning-input-field>
+            <lightning-input-field field-name={stageField}></lightning-input-field>
+            <lightning-input-field field-name={closeDateField}></lightning-input-field>
+            <lightning-button label="Cancel" onclick={toggleMode}></lightning-button>
+            <lightning-button label="Save" type="submit"></lightning-button>
+            <div class="slds-align_absolute-center">
+                <p>The record you are viewing is the sole property of GenWatt, Inc.</p>
+            </div>
+        </lightning-record-edit-form>
+    </template>
+    <template lwc:else>
+        <!-- Display the lightning-record-view-form -->
+        <lightning-record-view-form record-id={recordId} object-api-name={objectApiName}>
+            <lightning-output-field field-name={accountField}></lightning-output-field>
+            <lightning-output-field field-name={nameField}></lightning-output-field>
+            <lightning-output-field field-name={amountField}></lightning-output-field>
+            <lightning-output-field field-name={stageField}></lightning-output-field>
+            <lightning-output-field field-name={closeDateField}></lightning-output-field>
+            <lightning-button label="Edit" title="Edit" onclick={toggleMode}></lightning-button>
+        </lightning-record-view-form>
+    </template>
+</template>

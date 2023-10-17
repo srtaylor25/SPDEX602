@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Parent Component">
+        <p>Child Said: {childSaid}</p>
+        <template lwc:if={showChild}>
+           <c-child-component child-name="Huey" age=2 oncrying={handleFit}></c-child-component> 
+        </template>
+        <lightning-button label="Show Child" onclick={toggleView}></lightning-button>
+    </lightning-card>
+</template>

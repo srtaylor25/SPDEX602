@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Account List" icon-name="standard:account">
+        <template for:each={records} for:item="acct" for:index="idx">
+            <div key={acct.Id}>
+                <c-acct-card
+                    name={acct.Name}
+                    phone={acct.Phone}
+                    annual-revenue={acct.AnnualRevenue}
+                    acct-id={acct.Id}
+                    rank={idx}
+                    onselected={handleSelection}
+                ></c-acct-card>
+            </div>
+        </template>
+        <div slot="actions">
+            <lightning-button title="Create New Account" label="New" onclick={createAcct}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
